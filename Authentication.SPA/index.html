@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="authenticationApp">
+
+<head>
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>Authentication</title>
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/site.css" rel="stylesheet" />
+    <link href="content/loading-bar.min.css" rel="stylesheet" />
+    <link href="content/font-awesome.min.css" rel="stylesheet" />
+    <link href="content/social-buttons.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+
+<body>
+
+    <!-- This Block is governed bu 'indexController' Start -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/authenticatedUser">My Protected Resources</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/refresh">Refresh Token</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- This Block is governed bu 'indexController' End -->
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>AngularJS Authentication</h1>
+            </div>
+            <p>AngularJS Application which uses OAuth Bearer Token for authentication and implements Refresh Tokens. The backend API is built using ASP.NET Web API 2, OWIN middleware, and ASP.NET Identity.</p>
+        </div>
+    </div>
+
+    <!--Angular Routing takes pace here : The Magic Block!-->
+    <div class="container">
+        <div data-ng-view="">
+        </div>
+    </div>
+    <!--Magic Block Ends!-->
+
+    <hr />
+
+
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted">Created by Rahul Pawar. Linkedin Profile: <a target="_blank" href="https://au.linkedin.com/pub/rahul-pawar/40/a89/81">@rahulPawar</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted">Rahul Pawar: <a target="_blank" href="http://www.logicmonks.com.au/">LogicMonks</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3rd party libraries -->
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="Scripts/loading-bar.min.js"></script>
+
+    <!-- Load app main script -->
+    <script src="app/authenticationApp.js?v=2"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/authenticatedUserService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/authenticatedUserController.js?v=2"></script>  
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+
+</body>
+</html>
