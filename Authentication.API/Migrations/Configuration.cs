@@ -30,16 +30,16 @@ namespace Authentication.API.Migrations
             {
                 new Client
                 { Id = "ngAuthApp", 
-                    Secret= Helper.GetHash("abc@123"), 
+                    Secret= Helper.GetHash("lm@123456"), 
                     Name="AngularJS front-end Application", 
                     ApplicationType =  Models.ApplicationTypeEnums.JavaScript, 
                     Active = true, 
                     RefreshTokenLifeTime = 7200, 
-                    AllowedOrigin = "http://localhost:20781"
+                    AllowedOrigin = "http://logicmonk-SPA.azurewebsites.net"
                 },
                 new Client
                 { Id = "consoleApp", 
-                    Secret=Helper.GetHash("123@abc"), 
+                    Secret=Helper.GetHash("123456@lm"), 
                     Name="Console Application", 
                     ApplicationType = Models.ApplicationTypeEnums.NativeConfidential, 
                     Active = true, 
